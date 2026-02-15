@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trisha Gilla - Bioinformatics Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+    /* Navigation */
+    nav {
+      background: white;
+      padding: 1.2rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .logo-subtitle {
+      font-size: 0.8rem;
+      color: #666;
+      font-weight: 400;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #667eea; }
+
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      background: transparent;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-left {
+      background: white;
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .profile-image {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3.5rem;
+      font-weight: 700;
+      box-shadow: 0 5px 20px rgba(102,126,234,0.3);
+      overflow: hidden;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-left h1 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-left .subtitle {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-left .subtitle-2 {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-left .location {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.7rem 1rem;
+      background: #f8f9ff;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #667eea;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .social-link:hover {
+      background: #667eea;
+      color: white;
+      border: 2px solid #667eea;
+      transform: translateX(3px);
+    }
+
+    .social-link svg {
+      flex-shrink: 0;
+    }
+
+    .social-link span {
+      flex: 1;
+      text-align: left;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+      display: inline-block;
+      text-align: center;
+      flex: 1;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+
+    .btn-secondary:hover {
+      background: #f8f9ff;
+    }
+
+    .hero-right {
+      padding: 2rem 0;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .specialty-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      background: white;
+      color: #667eea;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 2px solid #667eea;
+    }
+
+    .hero-quote {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #667eea;
+      margin-top: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .hero-quote:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(102,126,234,0.2);
+      border-left: 4px solid #764ba2;
+    }
+
+    .hero-quote p {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .hero-quote .author {
+      font-size: 0.9rem;
+      color: #667eea;
+      font-style: normal;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: #333;
+      margin-bottom: 3rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+      background: white;
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .about-text h3 {
+      color: #333;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      color: #555;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .quick-facts h4 {
+      color: #333;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .fact-item {
+      background: #f8f9ff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      border-left: 4px solid #667eea;
+    }
+
+    .fact-item strong {
+      color: #667eea;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .fact-item span {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      display: block;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    .fact-item span + span {
+      margin-top: 0.3rem;
+    }
+
+    /* Skills Section */
+#skills {
+  background: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.skill-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.skill-card h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  gap: 0;
+}
+
+.skill-card h3::before {
+  content: attr(data-icon);
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.skill-tag {
+  color: #555;
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.4;
+  background: #f8f9ff;
+  border-radius: 20px;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.skill-tag:hover {
+  background: #667eea;
+  color: white;
+  border: 2px solid #667eea;
+  transform: scale(1.05);
+}
+
+/* Responsive for skills */
+@media (max-width: 968px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+    /* Projects Section */
+#projects {
+  background: transparent;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #4a5568;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  margin-top: -1.5rem;
+}
+    
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.project-header {
+  margin-bottom: 20px;
+}
+
+.project-header h3 {
+  color: #2d3748;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.project-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.project-content p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 0.95em;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem 0;
+}
+
+.meta-tag {
+  background: rgba(102, 126, 234, 0.15);
+  color: #667eea;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+/* GitHub Icon Button - ICON ONLY */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F3F4F6;
+  color: #667eea;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  margin-top: 15px;
+}
+
+.github-link:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.github-icon {
+  width: 20px;
+  height: 20px;
+}
+
+    /* Experience Section */
+    #experience {
+      background: transparent;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: #667eea;
+    }
+
+    .timeline-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      position: relative;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -3.5rem;
+      top: 2rem;
+      width: 18px;
+      height: 18px;
+      background: #667eea;
+      border-radius: 50%;
+      border: 4px solid white;
+    }
+
+    .timeline-item h3 {
+      color: #333;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item .company {
+      color: #667eea;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-item .date {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-item p {
+      color: #666;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .timeline-item ul {
+      margin-top: 0.6rem;
+      margin-left: 1.1rem;
+      color: #555;
+      font-size: 0.93rem;
+    }
+
+    .timeline-item li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Certifications */
+    #certifications {
+      background: transparent;
+    }
+
+    /* Featured Certification - Large Card */
+    .cert-featured {
+      background: white;
+      border-radius: 15px;
+      padding: 3rem;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      border-left: 6px solid #667eea;
+      margin-bottom: 3rem;
+      transition: all 0.3s ease;
+    }
+
+    .cert-featured:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 35px rgba(102,126,234,0.15);
+    }
+
+    .cert-featured h3 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .cert-featured .cert-org {
+      color: #667eea;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .cert-featured .cert-date {
+      color: #888;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .cert-featured p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    /* Smaller Certification Cards Grid */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      border-left: 4px solid #667eea;
+      font-size: 0.93rem;
+      color: #555;
+      transition: all 0.3s ease;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(102,126,234,0.1);
+    }
+
+    .cert-card h3 {
+      font-size: 1.05rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .cert-card .cert-org {
+      color: #667eea;
+      font-size: 0.88rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .cert-card p {
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 968px) {
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Contact Section */
+    #contact {
+      background: transparent;
+    }
+
+    .contact-content {
+      background: white;
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .contact-content p {
+      color: #666;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      padding: 1rem 2rem;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .contact-link:hover {
+      background: #5568d3;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      color: #888;
+      font-size: 0.93rem;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        gap: 1.5rem;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+    }
+    @media (max-width: 640px) {
+  /* Skills grid: 2 columns → 1 column */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-img">U</div>
+        <div>
+          <div class="logo-text">Trisha Gilla</div>
+          <div class="logo-subtitle">MS Graduate ·Bioinformatics ·Concentration in Data Analytics</div>
+        </div>
+      </div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>Pro
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-left">
+  <div class="profile-image">
+    <img src="profile.jpg" alt="Trisha Gilla" />
+  </div>
+  <h1>Trisha Gilla</h1>
+  <p class="subtitle">Quality Control Senior Specialist</p>
+  <p class="subtitle-2">M.S. Bioinformatics, Concentration in Data Analytics, Northeastern University</p>
+  <p class="location">📍 Boston, MA, USA</p>
+
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/trishagilla/" class="social-link" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      <span>LinkedIn Profile</span>
+    </a>
+    
+    <a href="https://github.com/Urmeshree" class="social-link" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      <span>GitHub: @Urmeshree</span>
+    </a>
+  </div>
+
+  <div class="hero-buttons">
+    <a href="Urmeshree_Magesh_Resume.pdf" class="btn btn-primary" target="_blank">📄 Download Resume</a>
+    <a href="/cdn-cgi/l/email-protection#dca9aeb1b9afb4aeb9b9b19cbbb1bdb5b0f2bfb3b1" class="btn btn-secondary">✉️ Email Me</a>
+  </div>
+</div>
+
+      <div class="hero-right">
+        <h2 class="hero-title">
+          Turning Complex Data into <span class="highlight">Clear Insights and Impactful Decisions</span>
+  </h2>
+        <p class="hero-description">
+    I hold a Master’s degree in Bioinformatics with a concentration in Data Analytics and bring professional experience
+    working as a Quality Control Senior Specialist at Vertex Pharmaceuticals. My background sits at the intersection
+    of data analysis, scientific thinking, and real-world decision making.
+  </p>
+
+  <p class="hero-description">
+    I enjoy working with complex datasets like biological, operational, or business-focused and transforming them into
+    clear, actionable insights. My experience spans data cleaning, statistical analysis, visualization, and dashboard
+    development using tools such as R, Python, SQL, Tableau, and Excel. I’m particularly interested in roles where
+    data supports strategy, efficiency, and informed decision-making across diverse industries.
+  </p>
+
+        <div class="specialty-badges">
+          <span class="badge">🧬 Bulk & Single-cell/Single-nucleus RNA-seq</span>
+          <span class="badge">🔬 Seurat · WGSEA ·NicheNet</span>
+          <span class="badge">🧠 Neurodegeneration & Cancer</span>
+          <span class="badge">📊 R, Python, SQL, ML, SAS, MATLAB</span>
+        </div>
+
+        <a href="https://en.wikipedia.org/wiki/Leroy_Hood" target="_blank" style="text-decoration: none; color: inherit;">
+  <div class="hero-quote">
+    <p>
+      "The future of medicine is predictive, preventive, personalized, and participatory—and it's powered by data."
+    </p>
+    <p class="author">— Leroy Hood</p>
+  </div>
+</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <h3>Bridging Tech and Life science, and neuro-focused Bioinformatics.</h3>
+        <p>
+          I started with a strong foundation in <strong>Biotechnology</strong>, where I spent time in the lab working on
+          molecular biology, microbiology, and biomaterials projects — from PCR, SDS-PAGE, and microbiological screening
+          to collagen and pectin extraction, nanoparticle synthesis, and virtual screening for breast cancer drug targets.
+        </p>
+        <p>
+          During my M.S. in <strong>Bioinformatics at Northeastern University</strong>, I shifted my focus toward
+          computational biology. I learned to work with bulk RNA-seq, single-cell and single-nucleus data, and clinical
+          datasets, and became especially interested in neurodegeneration, microglia/astrocyte biology, and blood–brain
+          barrier dysfunction.
+        </p>
+        <p>
+          At the <strong>Butovsky Lab (Brigham and Women's Hospital / Harvard Medical School)</strong>, I analyze
+          Alzheimer's disease datasets to identify disease-associated genes, cell states, and ligand–receptor signaling
+          between brain cell types. I combine tools like Seurat, DESeq2, hdWGCNA, NicheNet, and IPA with custom
+          visualization in R and R Shiny, always trying to keep pipelines reproducible and easy for collaborators to use.
+        </p>
+        <p>
+          Alongside neurogenomics, I've worked on <strong>clinical and hospital analytics</strong> projects using SQL,
+          Snowflake, and dashboards in Power BI and R Shiny, simulating real-world CRO and hospital environments:
+          patient recruitment, trial feasibility, and workflow optimization.
+        </p>
+      </div>
+
+      <div class="quick-facts">
+        <div class="fact-item">
+          <strong>🎓 Education</strong>
+          <span>M.S. Bioinformatics, Northeastern University</span>
+          <span>B.S. Biology, King's College</span>
+        </div>
+        <div class="fact-item">
+          <strong>🏥 Current Role</strong>
+          <span>Quality Control Senior Specialist · Vertex Pharmaceuticals, Cell and Gene Therapy</span>
+        </div>
+        <div class="fact-item">
+          <strong>🧠 Focus Areas</strong>
+<span>
+Data analytics, business intelligence, data visualization (Tableau), statistical analysis, research analytics, and translating complex scientific and operational data into actionable insights
+</span>
+        </div>
+        <div class="fact-item">
+          <strong>📊 Tools</strong>
+          <span>R, Seurat, DESeq2, NicheNet, hdWGCNA, IPA, SQL/Snowflake, Power BI, R Shiny</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+<section id="skills">
+  <h2 class="section-title">Technical Expertise</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3 data-icon="🔬">Programming & Tools</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Git & GitHub</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">R Shiny</span>
+        <span class="skill-tag">SAS</span>
+        <span class="skill-tag">MATLAB</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3 data-icon="🧬">Multi-Omics & Bioinformatics</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">scRNA-seq / snRNA-seq</span>
+        <span class="skill-tag">Bulk RNA-seq</span>
+        <span class="skill-tag">Spatial RNA-seq</span>
+        <span class="skill-tag">Seurat</span>
+        <span class="skill-tag">NGS Analysis</span>
+        <span class="skill-tag">hdWGCNA</span>
+        <span class="skill-tag">10X Genomics</span>
+        <span class="skill-tag">Pathway Enrichment(IPA & KEGG)</span>
+        <span class="skill-tag">Virtual Screening</span>
+        <span class="skill-tag">Molecular Docking</span>
+        <span class="skill-tag">Molecular Dynamic Simulation</span>
+        <span class="skill-tag">PyMOL</span>
+        <span class="skill-tag">Discover Studio 4.0</span>
+        <span class="skill-tag">AutoDock/Vina</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3 data-icon="📊">Data Analytics</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Snowflake</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Clinical trial data (AACT)</span>
+        <span class="skill-tag">Hospital operations analytics</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Entrez</span>
+        
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3 data-icon="🧪">Biotechnology & Wet Lab</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">PCR & gel electrophoresis</span>
+        <span class="skill-tag">SDS-PAGE</span>
+        <span class="skill-tag">Microbiological screening</span>
+        <span class="skill-tag">Silver nanoparticle synthesis</span>
+        <span class="skill-tag">Cell Culture</span>
+        <span class="skill-tag">Pectin-based biomaterials</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>Quality Control Senior Specialist</h3>
+        <p class="company">Vertex Pharmaceuticals · Cell and Gene Therapy</p>
+        <p class="date">Nov 2024 – Present · Boston, MA · On-site</p>
+        <ul>
+          <li>Lead GMP QC testing and data review for in-process, release, and stability samples, ensuring compliance with cGMP and regulatory requirements.</li>
+          <li>Conduct QC testing including Cell Counts (LUNA & Hemocytometer), Sterility (BACT), Gram Stain, Endotoxin (LAL), Cluster Size, Visual Inspection, Flow Cytometry, ELISA, HPLC, qPCR, and Cell Culture ensuring strict compliance with cGMP/cGDP.</li>
+          <li>Review, verify, and approve raw assay data, calculations, and results in LabVantage LIMS, ensuring full data integrity, traceability, and audit readiness.</li>
+          <li>Support method qualification and validation activities, including assay performance evaluation, system suitability, and method consistency across manufacturing campaigns.</li>
+          <li>Perform and document Phase I investigations and contribute to CAPA activities using structured root-cause analysis methodologies.</li>
+          <li>Author and review method related documentation, including investigation summaries, technical reports, SOPs, and controlled templates.</li>
+	  <li>Collaborate cross-functionally with Quality Assurance, Technical Operations, Process Development, and Manufacturing to support product disposition and method lifecycle activities.</li>
+	<li>Establish, maintain, and review assay performance trending using Excel and JMP based statistical analyses, identifying variability, shifts, and opportunities for continuous improvement.</li>
+	<li>Support stability data review and lifecycle tracking through LIMS based systems and SLIM style stability workflows, ensuring accurate timepoint execution, data completeness, and reporting readiness.</li>
+	<li>Manage qualification, usage, and documentation of reference standards, controls, and critical reagents, ensuring availability and compliance for GMP testing.</li>
+	<li>Train and qualify new analysts on GMP expectations, method execution, documentation standards, data integrity principles, and use of trending tools.</li>
+	<li>Contribute to Operational Excellence and Lean initiatives, leveraging data trending and investigation metrics to reduce cycle time and improve documentation accuracy.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Quality Control Lab Technologist</h3>
+        <p class="company">HK Kolmar USA</p>
+        <p class="date">July 2022 – July 2023 · Olyphant, PA · On-site</p>
+        <ul>
+          <li>Supported method qualification, cleaning validation, and equipment qualification activities within a GMP manufacturing environment.</li>
+          <li>Authored and reviewed SOPs, validation documentation, and controlled records supporting regulatory compliance and inspection readiness.</li>
+          <li>Executed and documented deviations, change controls, and CAPA actions, communicating quality risks and mitigation strategies to stakeholders.</li>
+          <li>Managed raw material qualification, stability studies, sample receipt, and instrument calibration, supporting material disposition decisions.</li>
+	<li>Generated and trended quality performance metrics, including stability failures, rework rates, and validation status to support continuous improvement initiatives.</li>
+	<li>Partnered with QA, Manufacturing Engineering, and Maintenance during PMs, calibrations, and qualification activities.</li>
+	<li>Conducted QC testings including specific gravity, viscosity, pH, melting point, ensuring product safety across lifecycle.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Research Assistant</h3>
+        <p class="company">King's College</p>
+        <p class="date">Aug 2021 – May 2022 · Wilkes-Barre, PA · On-site</p>
+        <ul>
+          <li>Prepared and analyzed samples via Scanning Electron Microscopy (SEM) and digital imaging.</li>
+          <li>Conducted statistical analysis using PAST software to support data interpretation.</li>
+          <li>Maintained organized lab notes and documented experimental observations.</li>
+          <li>Presented findings at the Pennsylvania Academy of Sciences.</li>
+        </ul>
+      </div>
+     
+    </div>
+  </section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <p class="section-subtitle">Exploring the intersection of bioinformatics, machine learning, and data science</p>
+
+  <div class="projects-grid">
+<div class="project-card">
+  <div class="project-header">
+    <h3>Global Mortality Trends (1970–2010)</h3>
+    <div class="project-badges">
+      <span class="project-badge">Data Analytics</span>
+      <span class="project-badge">Tableau</span>
+      <span class="project-badge">R</span>
+    </div>
+  </div>
+
+  <p class="project-description">
+    Analyzed global mortality patterns across countries, age groups, and sex from 1970–2010. 
+    Cleaned and transformed raw data in R, created summary metrics and trend visuals, and built an interactive Tableau story
+    to communicate long-term changes and disparities in a clear, dashboard-style narrative.
+  </p>
+
+  <ul class="project-highlights">
+    <li>Data cleaning & transformation (type conversion, filtering, tidy structure)</li>
+    <li>Trend + segmentation analysis (time, demographics)</li>
+    <li>Interactive Tableau storytelling for exploration and comparison</li>
+  </ul>
+
+  <div class="project-links">
+    <a class="project-link" href="YOUR_GITHUB_PAGES_LINK" target="_blank" rel="noopener noreferrer">🌐 Live Page</a>
+    <a class="project-link" href="YOUR_GITHUB_REPO_LINK" target="_blank" rel="noopener noreferrer">💻 GitHub Repo</a>
+    <a class="project-link" href="https://public.tableau.com/views/GlobalBurdenofDisease19702010/GlobalBurdenofDisease19702010?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer">📊 Tableau Story</a>
+  </div>
+</div>
+
+
+   <div class="project-card">
+  <div class="project-header">
+    <h3>US County Health Analytics Dashboard</h3>
+    <span class="project-badge">Data Analytics</span>
+    <span class="project-badge">Tableau</span>
+    <span class="project-badge">R</span>
+  </div>
+
+  <div class="project-content">
+    <p>
+      Conducted county-level data analysis to identify geographic disparities in premature death across the United States. 
+      Built statistical visualizations in R and designed an interactive Tableau dashboard to communicate trends and insights.
+      Demonstrates end-to-end analytics workflow from raw data to business-ready insights.
+    </p>
+
+    <a href="https://trishagilla.github.io/County-Health-Analytics/" target="_blank">
+      🔗 View Live Project
+    </a>
+    <br>
+    <a href="https://github.com/trishagilla/County-Health-Analytics" target="_blank">
+      💻 View GitHub Code
+    </a>
+    <br>
+    <a href="https://public.tableau.com/app/profile/trisha.gilla/viz/ACounty-LevelAnalysisofPrematureDeathintheUnitedStates/ACounty-LevelAnalysisofPrematureDeathintheUnitedStates?publish=yes" target="_blank">
+      📊 View Tableau Dashboard
+    </a>
+  </div>
+</div>
+
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Comparative Genomics of Disease-Associated Genes</h3>
+        <span class="project-badge">Genomics</span>
+        <span class="project-badge">Visualization</span>
+      </div>
+      <div class="project-content">
+        <p>Conducted comparative genomics analysis of genes linked to rare neurological disorders using data from NCBI and Ensembl, focusing on conserved mutations and expression patterns.</p>
+        <div class="project-meta">
+          <span class="meta-tag">R</span>
+          <span class="meta-tag">SQL</span>
+          <span class="meta-tag">ggplot2</span>
+          <span class="meta-tag">Power BI</span>
+        </div>
+        <a href="#" class="github-link">
+          <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Breast Cancer Prognostic Biomarkers</h3>
+        <span class="project-badge">Transcriptomics</span>
+      </div>
+      <div class="project-content">
+        <p>Analyzed gene expression data to identify biomarkers associated with breast cancer prognosis and treatment response.</p>
+        <div class="project-meta">
+          <span class="meta-tag">RNA-seq</span>
+          <span class="meta-tag">Python</span>
+          <span class="meta-tag">Differential-Expression</span>
+        </div>
+        <a href="https://github.com/Urmeshree/Breast-Cancer-Biomarkers" class="github-link" target="_blank">
+          <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Student Performance Prediction Using Ensemble Learning</h3>
+        <span class="project-badge">Education Analytics</span>
+        <span class="project-badge">ML</span>
+      </div>
+      <div class="project-content">
+        <p>Developed an ensemble machine learning model to predict student academic performance using demographic, social, and academic features. Implemented multiple algorithms including Random Forest, Gradient Boosting, and XGBoost, achieving high prediction accuracy for early intervention strategies in educational settings.</p>
+        <div class="project-meta">
+          <span class="meta-tag">R</span>
+          <span class="meta-tag">Scikit-learn</span>
+          <span class="meta-tag">XGBoost</span>
+          <span class="meta-tag">Pandas</span>
+          <span class="meta-tag">Ensemble-Learning</span>
+        </div>
+        <a href="https://github.com/Urmeshree/Student-Performance-Prediction" class="github-link" target="_blank">
+          <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Virtual Screening of Allosteric CDK4 Inhibitors</h3>
+        <span class="project-badge">Structural Bioinformatics</span>
+      </div>
+      <div class="project-content">
+        <p>Performed molecular docking and dynamics simulations to identify potential CDK4 inhibitors with allosteric binding properties.</p>
+        <div class="project-meta">
+          <span class="meta-tag">Molecular docking</span>
+          <span class="meta-tag">BIOVIA Discovery Studio 4.0</span>
+          <span class="meta-tag">GROMACS</span>
+        </div>
+        <a href="https://github.com/Urmeshree/Virtual-Screening-of-Allosteric-CDK4-Inhibitors.git" class="github-link" target="_blank">
+          <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <h2 class="section-title">Certifications</h2>
+
+    <!-- Other Certifications Grid -->
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>String Manipulation with stringr in R</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date">October 2024</div>
+        <p>
+          Focused on cleaning, parsing, and transforming messy text data using regular expressions and string operations in R, a key skill for data preparation and reporting workflows.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Intermediate Regular Expressions in R</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date"> October 2024</div>
+        <p>
+          Developed advanced pattern-matching and text-extraction skills using regular expressions to efficiently clean and structure real-world datasets.
+        </p>
+      </div>
+	
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Introduction to SQL</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date"> October 2024</div>
+        <p>
+          Learned foundational SQL concepts including querying, filtering, sorting, and aggregating data to extract insights from relational databases.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Intermediate SQL</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date"> October 2024</div>
+        <p>
+          Built complex SQL queries using joins, subqueries, and window functions to analyze larger, multi-table datasets commonly used in business and analytics environments.
+        </p>
+      </div>
+  
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Modeling with Data in the Tidyverse</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date"> October 2024</div>
+        <p>
+          Applied statistical modeling concepts using tidyverse workflows, emphasizing reproducible analysis, feature exploration, and model interpretation.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Modeling with tidymodels in R</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date"> October 2024</div>
+        <p>
+          Gained hands-on experience building, evaluating, and tuning predictive models using the tidymodels framework with a focus on structured, production-ready workflows.
+        </p>
+      </div>
+    
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Intermediate R</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date">September 2024</div>
+        <p>
+          Strengthened core R programming skills including control structures, functional programming, data manipulation, and writing reusable analytical code.
+        </p>
+      </div>
+
+     <div class="cert-grid">
+      <div class="cert-card">
+        <h3>Data Manipulation with dply</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date">September 2024</div>
+        <p>
+          Focused on efficient data wrangling using dplyr to filter, transform, summarize, and join datasets for downstream analysis and visualization.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Introduction to the Tidyverse</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date">September 2024</div>
+        <p>
+          Learned the tidy data philosophy and core tidyverse packages to create clean, consistent, and analysis-ready datasets.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Reshaping Data with tidyr</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date">September 2024</div>
+        <p>
+          Developed skills to reshape and reorganize datasets into tidy formats, enabling clearer analysis and easier visualization.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Introduction to Data Visualization with ggplot2</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date">September 2024</div>
+        <p>
+          Built clear and effective data visualizations using ggplot2, focusing on communicating insights through charts commonly used in analytics and reporting.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Communicating with Data in the Tidyverse</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date">September 2024</div>
+        <p>
+          Learned best practices for presenting data-driven insights using visualizations and narrative techniques tailored to technical and non-technical audiences.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Introduction to R</h3>
+        <div class="cert-org">DataCamp</div>
+	<div class="cert-date">September 2024</div>
+        <p>
+          Introduced to R programming fundamentals for data analysis, including data structures, basic plotting, and exploratory data analysis.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>R for Data Science: Analysis and Visualization</h3>
+        <div class="cert-org">LinkedIn Learning</div>
+	<div class="cert-date">September 2024</div>
+        <p>
+          Covered end-to-end data analysis workflows in R, including data cleaning, visualization, and interpretation for practical analytics use cases.
+        </p>
+      </div>
+
+	<div class="cert-grid">
+      <div class="cert-card">
+        <h3>Next Generation Sequencing(NGS) for Influenza and SAES-CoV-2: From Sample Collection to Analysis</h3>
+        <div class="cert-org">World Health Organization</div>
+	<div class="cert-date">August 2024</div>
+        <p>
+          Provided an overview of genomics data generation and analysis pipelines, strengthening data literacy and analytical thinking in large-scale biological datasets.
+        </p>
+      </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-content">
+      <p>
+       I'm happy to connect about data analytics, business intelligence, bioinformatics, or research focused roles, as well as projects involving data visualization, dashboard development, and data driven decision making across scientific and operational domains.
+      </p>
+      <div class="contact-links">
+  <a class="contact-link" href="mailto:trisha.gilla123@gmail.com">
+    ✉️ Email Me
+  </a>
+  <a class="contact-link" href="https://www.linkedin.com/in/trishagilla/" target="_blank">
+    🔗 Connect on LinkedIn
+  </a>
+</div>
+        GitHub: <a href="https://github.com/Urmeshree" target="_blank">github.com/Urmeshree</a> · Based in Boston, MA.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Trisha Gilla
